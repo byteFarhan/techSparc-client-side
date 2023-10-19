@@ -12,6 +12,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/my-cart">My Cart</NavLink>
       </li>
+      <li>
+        <NavLink to="/register">Register</NavLink>
+      </li>
     </>
   );
   return (

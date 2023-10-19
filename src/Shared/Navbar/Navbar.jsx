@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
+import defaultUserProfile from "../../assets/user.png";
 
 const Navbar = () => {
   const { userLogout, user } = useAuth();
+  //   console.log(user?.photoURL);
   const handleLogout = () => {
     userLogout()
       .then(() => {
@@ -69,7 +71,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
+
       <div className="navbar-end">
+        <img
+          src={user?.photoURL ? user.photoURL : defaultUserProfile}
+          alt=""
+          className="w-12 h-12 rounded-full mx-3 object-cover"
+        />
         {user ? (
           <button onClick={handleLogout} className="btn">
             Logout

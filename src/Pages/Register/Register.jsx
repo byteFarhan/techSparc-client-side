@@ -42,6 +42,7 @@ const Register = () => {
       .then((result) => {
         setSuccess("user registation successfull.");
         updateProfile(result.user, { displayName: name, photoURL });
+        // form.reset();
         navigate("/");
         swal({
           title: "User registation successfull.",
@@ -182,10 +183,7 @@ const Register = () => {
               {success && <p className="text-sm text-gray-700">{success}</p>}
               {error && <p className="text-sm text-red-700">{error}</p>}
               <div className="mt-2 form-control">
-                <button
-                  // style={{ textShadow: "2px 2px 0 rgba(0.5,0,0,0.5) " }}
-                  className="text-xl md:text-2xl font-medium w-full btn border-2 mb-5  hover:bg-[#c9ac86] hover:border-2 hover:border-[#331A15]  border-[#331A15] bg-[#D2B48C]"
-                >
+                <button className="text-xl md:text-2xl font-medium w-full btn border-2 mb-5  hover:bg-[#c9ac86] hover:border-2 hover:border-[#331A15]  border-[#331A15] bg-[#D2B48C]">
                   Register
                 </button>
               </div>

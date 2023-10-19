@@ -4,6 +4,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import BrandProducts from "../Pages/BrandProducts/BrandProducts";
 import Register from "../Pages/Register/Register";
+import Login from "../Pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/brands"),
       },
       {
-        path: "/:brand",
+        path: "/brands/:brand",
         element: <BrandProducts />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/brands/${params.brand}`),
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

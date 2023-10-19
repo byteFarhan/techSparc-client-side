@@ -1,6 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import swal from "sweetalert";
 
 const Navbar = () => {
+  const { userLogout, user } = useAuth();
+  const handleLogout = () => {
+    userLogout()
+      .then(() => {
+        swal("User logout successfull.", {
+          button: false,
+        });
+      })
+      .catch((error) => {
+        swal(error.message, {
+          button: false,
+        });
+      });
+  };
   const navLink = (
     <>
       <li>
@@ -18,7 +34,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,7 +60,6 @@ const Navbar = () => {
             {navLink}
           </ul>
         </div>
-        {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
         <img
           src="https://i.postimg.cc/fRtzgMTJ/cropped-Tech-SPARK-Logo-Horizontal-Light-Gradient-1.png"
           alt="logo"
@@ -55,9 +70,15 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
       <div className="navbar-end">
-        <Link to={"/login"} className="btn">
-          Login
-        </Link>
+        {user ? (
+          <button onClick={handleLogout} className="btn">
+            Logout
+          </button>
+        ) : (
+          <Link to={"/login"} className="btn">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

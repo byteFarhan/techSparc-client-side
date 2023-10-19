@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const Brand = ({ brand }) => {
   return (
-    <Link to={`/${brand.brand}`}>
+    <Link to={`/brands/${brand.brand}`}>
       <div className="bg-slate-300 rounded-md shadow">
         <img
           src={brand.brand_img}

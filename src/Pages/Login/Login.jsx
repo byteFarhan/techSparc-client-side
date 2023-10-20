@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
 
 const Login = () => {
+  const location = useLocation();
   const { showPassword, setShowPassword, userSignIn } = useAuth();
   const navigate = useNavigate();
   const [success, setSuccess] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
         swal("User logged in successfull.", {
           button: false,
         });
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         // console.log(error.message);
@@ -33,7 +34,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="py-6 px-5 md:px-0">
+      <div className="px-5 py-6 md:px-0">
         <div className="max-w-[1400px] mx-auto"></div>
         <div className="min-h-[87vh] hero ">
           <div className=" w-full max-w-[500px] md:px-6 card rounded bg-[#F4F3F0]">

@@ -23,7 +23,7 @@ const AddProduct = () => {
     };
     console.log(product);
     fetch(
-      "https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products",
+      "https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products",
       {
         method: "POST",
         headers: {

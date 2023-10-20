@@ -24,7 +24,7 @@ const UpdateProduct = () => {
       description,
     };
     fetch(
-      `https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products/${product._id}`,
+      `https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products/${product._id}`,
       {
         method: "PUT",
         headers: {

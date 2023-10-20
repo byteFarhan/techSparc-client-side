@@ -18,12 +18,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () =>
+          fetch(
+            "https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/brands"
+          ),
       },
       {
         path: "/brands/:brand",
         element: <BrandProducts />,
-        loader: () => fetch(`http://localhost:5000/products/`),
+        loader: () =>
+          fetch(
+            `https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products/`
+          ),
       },
       {
         path: "/register",
@@ -41,13 +47,17 @@ const router = createBrowserRouter([
         path: "/update-product/:id",
         element: <UpdateProduct />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/brands/:brand/:id",
         element: <ProductDetailes />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products/${params.id}`
+          ),
       },
     ],
   },

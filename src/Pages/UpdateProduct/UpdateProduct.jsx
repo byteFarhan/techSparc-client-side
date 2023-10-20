@@ -23,13 +23,16 @@ const UpdateProduct = () => {
       photoURL,
       description,
     };
-    fetch(`http://localhost:5000/products/${product._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    })
+    fetch(
+      `https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/products/${product._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

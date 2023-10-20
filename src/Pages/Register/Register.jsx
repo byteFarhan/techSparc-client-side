@@ -47,13 +47,16 @@ const Register = () => {
         swal({
           title: "User registation successfull.",
         });
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(registeredUser),
-        })
+        fetch(
+          "https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(registeredUser),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -80,13 +83,16 @@ const Register = () => {
           photoURL: result.user.photoURL,
           email: result.user.email,
         };
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(registeredUser),
-        })
+        fetch(
+          "https://tech-sparc-server-side-3dxdbahn8-farhan-71s-projects.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(registeredUser),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

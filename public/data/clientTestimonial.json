@@ -1,0 +1,38 @@
+[
+  {
+    "key": 1,
+    "name": "John Doe",
+    "image_url": "https://i.postimg.cc/1XG4Ct5j/person.jpg",
+    "testimonial": "Impressive work in the technology and electronics category. This website is a treasure trove for tech enthusiasts."
+  },
+  {
+    "key": 2,
+    "name": "Jane Smith",
+    "image_url": "https://i.postimg.cc/2yRV7vmW/person2.jpg",
+    "testimonial": "I'm amazed at the depth of tech products featured on this website. It's an excellent resource for staying updated in the tech world."
+  },
+  {
+    "key": 3,
+    "name": "David Johnson",
+    "image_url": "https://i.ibb.co/nr6vWnc/member1.png",
+    "testimonial": "As someone passionate about electronics, I find this website to be a valuable hub for discovering the latest gadgets and innovations."
+  },
+  {
+    "key": 4,
+    "name": "Emily Brown",
+    "image_url": "https://i.ibb.co/b7hk6yj/member2.png",
+    "testimonial": "This website offers a great platform for exploring cutting-edge technology and electronic devices. It's well-organized and user-friendly."
+  },
+  {
+    "key": 5,
+    "name": "Michael Wilson",
+    "image_url": "https://i.ibb.co/wpDpXQD/member3.png",
+    "testimonial": "I'm impressed by the technology insights provided on this website. It's a go-to source for tech trends and innovations."
+  },
+  {
+    "key": 6,
+    "name": "Olivia Taylor",
+    "image_url": "https://i.ibb.co/PZM4Cgt/member4.png",
+    "testimonial": "This platform caters to my love for robotics and electronics. It's a fantastic place to discover the latest advancements in the field."
+  }
+]

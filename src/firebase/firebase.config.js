@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDvN_XOV2e3LK-ZwBH0I7OvuZe_41uYKwQ",
-  authDomain: "techsparc-ac895.firebaseapp.com",
-  projectId: "techsparc-ac895",
-  storageBucket: "techsparc-ac895.appspot.com",
-  messagingSenderId: "1066309113843",
-  appId: "1:1066309113843:web:c289fab262aaedbeb0a486",
+  apiKey: "AIzaSyDenIdnP4L-o0xxFc1h0tV-tEhPGU0GjLo",
+  authDomain: "tach-sparc.firebaseapp.com",
+  projectId: "tach-sparc",
+  storageBucket: "tach-sparc.appspot.com",
+  messagingSenderId: "1094589192471",
+  appId: "1:1094589192471:web:6052ede6cf8bfa0d787f52",
 };
 
 // Initialize Firebase

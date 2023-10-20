@@ -1,7 +1,29 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-const Product = ({ product }) => {
-  const { name, brand, type, price, rating, photoURL, _id } = product;
+import swal from "sweetalert";
+
+const UserCart = ({ cart, carts, setCarts }) => {
+  const { name, brand, type, price, rating, photoURL } = cart.product;
+  const handleDelete = (id) => {
+    // console.log("clicked", id);
+    fetch(
+      `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/user-carts/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.deletedCount) {
+          const remainingCarts = carts.filter((cart) => cart._id !== id);
+          //   console.log(remainingCarts);
+          setCarts(remainingCarts || []);
+          swal("Product have been deleted successfully.", {
+            buttons: false,
+          });
+        }
+      });
+  };
   return (
     <div>
       <div className="flex flex-col text-gray-700 rounded-lg shadow-md bg-slate-200 bg-clip-border">
@@ -32,29 +54,24 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-between p-6 pt-0">
-          <Link
-            to={`./${_id}`}
+          <button
+            onClick={() => handleDelete(cart._id)}
             className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-light="true"
           >
-            Read More
-          </Link>
-          <Link
-            to={`/update-product/${_id}`}
-            className="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-            data-ripple-light="true"
-          >
-            Update Product
-          </Link>
+            Delete
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Product;
-Product.propTypes = {
-  product: PropTypes.object.isRequired,
+export default UserCart;
+
+UserCart.propTypes = {
+  cart: PropTypes.object.isRequired,
+  carts: PropTypes.array.isRequired,
+  setCarts: PropTypes.func.isRequired,
 };

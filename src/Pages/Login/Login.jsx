@@ -20,7 +20,7 @@ const Login = () => {
     const password = form.password.value;
     userSignIn(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setSuccess("User logged in successfull.");
         swal("User logged in successfull.", {
           button: false,

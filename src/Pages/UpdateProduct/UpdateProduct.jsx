@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import InputForm from "../../Shared/InputForm/InputForm";
+import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const product = useLoaderData();
@@ -24,7 +25,7 @@ const UpdateProduct = () => {
       description,
     };
     fetch(
-      `https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products/${product._id}`,
+      `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/${product._id}`,
       {
         method: "PUT",
         headers: {
@@ -35,7 +36,12 @@ const UpdateProduct = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+        if (data.modifiedCount) {
+          swal("Product have been updated successfully.", {
+            buttons: false,
+          });
+        }
       });
   };
   return (

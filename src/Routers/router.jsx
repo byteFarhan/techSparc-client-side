@@ -8,8 +8,10 @@ import Login from "../Pages/Login/Login";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import ProductDetailes from "../Pages/ProductDetailes/ProductDetailes";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
-import MyCart from "../Pages/MyCart/MyCart";
+// import MyCart from "../Pages/MyCarts/MyCarts";
 import PrivetRoute from "./PrivetRoute";
+// import MyCarts from "../Pages/MyCarts/MyCarts";
+import UserCarts from "../Pages/UserCarts/UserCarts";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: () =>
           fetch(
-            "https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/brands"
+            "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/brands"
           ),
       },
       {
@@ -30,16 +32,20 @@ const router = createBrowserRouter([
         element: <BrandProducts />,
         loader: () =>
           fetch(
-            `https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products/`
+            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/`
           ),
       },
       {
-        path: "/my-cart",
+        path: "/my-carts",
         element: (
           <PrivetRoute>
-            <MyCart />
+            <UserCarts />
           </PrivetRoute>
         ),
+        loader: () =>
+          fetch(
+            "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/user-carts"
+          ),
       },
       {
         path: "/register",
@@ -66,7 +72,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products/${params.id}`
+            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -78,7 +84,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products/${params.id}`
+            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/${params.id}`
           ),
       },
     ],

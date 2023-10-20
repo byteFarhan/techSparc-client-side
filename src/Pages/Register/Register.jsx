@@ -48,7 +48,7 @@ const Register = () => {
           title: "User registation successfull.",
         });
         fetch(
-          "https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/users",
+          "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/users",
           {
             method: "POST",
             headers: {
@@ -59,11 +59,11 @@ const Register = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(error.message);
         swal({
           title: error.message,
@@ -74,7 +74,7 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         // console.log(user);
         swal({ title: "User registation successfull." });
         navigate("/");
@@ -84,7 +84,7 @@ const Register = () => {
           email: result.user.email,
         };
         fetch(
-          "https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/users",
+          "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/users",
           {
             method: "POST",
             headers: {
@@ -95,7 +95,7 @@ const Register = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
           });
       })
       .catch((error) => {

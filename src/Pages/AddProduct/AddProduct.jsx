@@ -21,9 +21,9 @@ const AddProduct = () => {
       photoURL,
       description,
     };
-    console.log(product);
+    // console.log(product);
     fetch(
-      "https://tech-sparc-server-side-hdeew7i5u-farhan-71s-projects.vercel.app/products",
+      "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products",
       {
         method: "POST",
         headers: {
@@ -34,7 +34,7 @@ const AddProduct = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           swal("Product have been added.", {
             button: false,

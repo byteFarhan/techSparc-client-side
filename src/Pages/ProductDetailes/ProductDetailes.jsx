@@ -17,7 +17,7 @@ const ProductDetailes = () => {
       user: user.email,
     };
     fetch(
-      "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/user-carts",
+      "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts",
       {
         method: "POST",
         headers: {

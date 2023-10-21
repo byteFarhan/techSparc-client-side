@@ -48,7 +48,7 @@ const Register = () => {
           title: "User registation successfull.",
         });
         fetch(
-          "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/users",
+          "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/users",
           {
             method: "POST",
             headers: {
@@ -84,7 +84,7 @@ const Register = () => {
           email: result.user.email,
         };
         fetch(
-          "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/users",
+          "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/users",
           {
             method: "POST",
             headers: {

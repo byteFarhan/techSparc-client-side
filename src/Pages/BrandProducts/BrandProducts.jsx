@@ -27,9 +27,10 @@ const BrandProducts = () => {
     <div>
       <Carousel products={filteredProducts} />
       <div className="grid grid-cols-1 gap-5 my-20 px-5 lg:px-0 md:grid-cols-2 lg:grid-cols-3 max-w-[1400px] mx-auto">
-        {filteredProducts?.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {filteredProducts &&
+          filteredProducts.map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
       </div>
     </div>
   );

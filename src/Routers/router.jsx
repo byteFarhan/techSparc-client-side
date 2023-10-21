@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: () =>
           fetch(
-            "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/brands"
+            "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/brands"
           ),
       },
       {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <BrandProducts />,
         loader: () =>
           fetch(
-            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/`
+            `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/products/`
           ),
       },
       {
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/user-carts"
+            "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts"
           ),
       },
       {
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/${params.id}`
+            `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/products/${params.id}`
+            `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/products/${params.id}`
           ),
       },
     ],

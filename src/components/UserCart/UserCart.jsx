@@ -5,24 +5,57 @@ const UserCart = ({ cart, carts, setCarts }) => {
   const { name, brand, type, price, rating, photoURL } = cart.product;
   const handleDelete = (id) => {
     // console.log("clicked", id);
-    fetch(
-      `https://tech-sparc-server-side-7i3cedadu-farhan-71s-projects.vercel.app/user-carts/${id}`,
-      {
-        method: "DELETE",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        if (data.deletedCount) {
-          const remainingCarts = carts.filter((cart) => cart._id !== id);
-          //   console.log(remainingCarts);
-          setCarts(remainingCarts || []);
-          swal("Product have been deleted successfully.", {
-            buttons: false,
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this product!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(
+          `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.deletedCount) {
+              const remainingCarts = carts.filter((cart) => cart._id !== id);
+              //   console.log(remainingCarts);
+              setCarts(remainingCarts || []);
+              // swal("Product have been deleted successfully.", {
+              //   buttons: false,
+              // });
+            }
           });
-        }
-      });
+        swal("Product have been deleted successfully.", {
+          icon: "success",
+        });
+      } else {
+        swal("Product deleation has been cancelled!");
+      }
+    });
+    // fetch(
+    //   `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts/${id}`,
+    //   {
+    //     method: "DELETE",
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     // console.log(data);
+    //     if (data.deletedCount) {
+    //       const remainingCarts = carts.filter((cart) => cart._id !== id);
+    //       //   console.log(remainingCarts);
+    //       setCarts(remainingCarts || []);
+    //       swal("Product have been deleted successfully.", {
+    //         buttons: false,
+    //       });
+    //     }
+    //   });
   };
   return (
     <div>

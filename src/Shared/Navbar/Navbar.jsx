@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <div
       className={`py-2 ${
-        darkMode ? "bg-slate-800 text-white" : "bg-base-100"
+        darkMode ? "bg-slate-800 text-slate-300" : "bg-base-100"
       } `}
     >
       <div className="navbar max-w-[1400px] mx-auto ">

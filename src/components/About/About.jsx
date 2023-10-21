@@ -1,6 +1,13 @@
+import useAuth from "../../hooks/useAuth";
+
 const About = () => {
+  const { darkMode } = useAuth();
   return (
-    <div className="max-w-[1400px] mx-auto space-y-5 my-20 px-5 lg:px-0 text-center">
+    <div
+      className={`${
+        darkMode && "text-slate-300"
+      } max-w-[1400px] mx-auto space-y-5 my-20 px-5 lg:px-0 text-center`}
+    >
       <h1 className="text-3xl font-bold md:text-4xl">
         About Our Technology and Electronics Showcase
       </h1>

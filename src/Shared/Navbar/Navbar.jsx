@@ -1,10 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+// import { MdLightMode } from "react-icons/md";
+import { CgDarkMode } from "react-icons/cg";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
 import defaultUserProfile from "../../assets/user.png";
 
 const Navbar = () => {
-  const { userLogout, user } = useAuth();
+  const { userLogout, user, darkMode, setDarkMode } = useAuth();
+  // console.log(darkMode);
   //   console.log(user?.photoURL);
   const handleLogout = () => {
     userLogout()
@@ -36,7 +39,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="py-2 bg-base-100">
+    <div
+      className={`py-2 ${
+        darkMode ? "bg-slate-800 text-white" : "bg-base-100"
+      } `}
+    >
       <div className="navbar max-w-[1400px] mx-auto ">
         <div className="flex-1 navbar-start ">
           <div className="dropdown">
@@ -58,7 +65,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52`}
             >
               {navLink}
             </ul>
@@ -71,6 +78,10 @@ const Navbar = () => {
         </div>
         <div className="hidden navbar-center lg:flex">
           <ul className="px-1 menu menu-horizontal">{navLink}</ul>
+        </div>
+        {/*darkmode toogle */}
+        <div onClick={() => setDarkMode(!darkMode)}>
+          <CgDarkMode className="mx-3 text-2xl font-semibold md:text-3xl" />
         </div>
         {user && (
           <p className="hidden font-medium md:block font-work-sans">
@@ -85,11 +96,11 @@ const Navbar = () => {
         />
         <div className="">
           {user ? (
-            <button onClick={handleLogout} className="btn">
+            <button onClick={handleLogout} className="md:btn btn-sm">
               Logout
             </button>
           ) : (
-            <Link to={"/login"} className="btn">
+            <Link to={"/login"} className="md:btn btn-sm">
               Login
             </Link>
           )}

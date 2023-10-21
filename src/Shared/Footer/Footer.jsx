@@ -1,7 +1,14 @@
+import useAuth from "../../hooks/useAuth";
+
 const Footer = () => {
+  const { darkMode } = useAuth();
   return (
-    <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+    <>
+      <footer
+        className={`p-10  footer ${
+          darkMode ? "bg-slate-800 text-slate-300" : "bg-base-200"
+        } text-base-content`}
+      >
         <nav>
           <header className="footer-title">Services</header>
           <a className="link link-hover">Branding</a>
@@ -26,22 +33,26 @@ const Footer = () => {
           <header className="footer-title">Newsletter</header>
           <fieldset className="form-control w-80">
             <label className="label">
-              <span className="label-text">Enter your email address</span>
+              <span className={`label-text" ${darkMode && "text-slate-300"}`}>
+                Enter your email address
+              </span>
             </label>
             <div className="relative">
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-bordered w-full pr-16"
+                className={`w-full pr-16 input input-bordered ${
+                  darkMode && "bg-slate-300 text-black"
+                }`}
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+              <button className="absolute top-0 right-0 rounded-l-none btn btn-primary">
                 Subscribe
               </button>
             </div>
           </fieldset>
         </form>
       </footer>
-    </div>
+    </>
   );
 };
 

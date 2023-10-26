@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <>
       <footer
-        className={`p-10  footer ${
-          darkMode ? "bg-slate-800 text-slate-300" : "bg-base-200"
+        className={`p-20  footer ${
+          darkMode ? "bg-slate-900 text-slate-300" : "bg-base-200"
         } text-base-content`}
       >
         <nav>

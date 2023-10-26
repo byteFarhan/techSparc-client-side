@@ -24,16 +24,13 @@ const UpdateProduct = () => {
       photoURL,
       description,
     };
-    fetch(
-      `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/products/${product._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedProduct),
-      }
-    )
+    fetch(`https://tech-sparc-server-side.vercel.app/products/${product._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

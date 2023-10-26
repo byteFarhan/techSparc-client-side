@@ -10,7 +10,7 @@ const ClientTestimonial = () => {
       .then((data) => setTestimonials(data));
   }, []);
   return (
-    <div className="py-8 max-w-[1400px] mx-auto px-5 lg:px-0">
+    <div className="pb-20 max-w-[1400px] mx-auto px-5 lg:px-0">
       <h1
         className={`my-5 text-3xl font-bold md:text-4xl ${
           darkMode && "text-slate-300"

@@ -13,12 +13,9 @@ const UserCart = ({ cart, carts, setCarts }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(
-          `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://tech-sparc-server-side.vercel.app/user-carts/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
@@ -39,7 +36,7 @@ const UserCart = ({ cart, carts, setCarts }) => {
       }
     });
     // fetch(
-    //   `https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts/${id}`,
+    //   `https://tech-sparc-server-side.vercel.app/user-carts/${id}`,
     //   {
     //     method: "DELETE",
     //   }

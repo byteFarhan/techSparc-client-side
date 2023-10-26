@@ -38,7 +38,7 @@ const Login = () => {
         <div className="max-w-[1400px] mx-auto"></div>
         <div className="min-h-[87vh] hero ">
           <div className=" w-full max-w-[500px] md:px-6 card rounded bg-[#F4F3F0]">
-            <h3 className="text-[#403F3F] font-semibold text-4xl text-center pt-10">
+            <h3 className="text-[#403F3F] font-semibold text-3xl md:text-4xl text-center pt-10">
               Login your account
             </h3>
             <hr className="w-5/6 mx-auto mt-10 border-b-[1px] border-[#c9ac86]" />

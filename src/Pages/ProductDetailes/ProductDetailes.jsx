@@ -16,16 +16,13 @@ const ProductDetailes = () => {
       product,
       user: user.email,
     };
-    fetch(
-      "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/user-carts",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    fetch("https://tech-sparc-server-side.vercel.app/user-carts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

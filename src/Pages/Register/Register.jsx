@@ -1,7 +1,7 @@
 import { AiFillEyeInvisible, AiFillEye, AiOutlineGoogle } from "react-icons/ai";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import swal from "sweetalert";
 
@@ -10,6 +10,7 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
   const handleRegister = (e) => {
     e.preventDefault();
     setSuccess("");
@@ -43,20 +44,17 @@ const Register = () => {
         setSuccess("user registation successfull.");
         updateProfile(result.user, { displayName: name, photoURL });
         // form.reset();
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
         swal({
           title: "User registation successfull.",
         });
-        fetch(
-          "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(registeredUser),
-          }
-        )
+        fetch("https://tech-sparc-server-side.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(registeredUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
@@ -83,16 +81,13 @@ const Register = () => {
           photoURL: result.user.photoURL,
           email: result.user.email,
         };
-        fetch(
-          "https://tech-sparc-server-side-hi5pyh65r-farhan-71s-projects.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(registeredUser),
-          }
-        )
+        fetch("https://tech-sparc-server-side.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(registeredUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
@@ -110,7 +105,7 @@ const Register = () => {
         <div className="max-w-[1400px] mx-auto"></div>
         <div className="min-h-[87vh] hero ">
           <div className=" w-full max-w-[500px] md:px-6 card rounded bg-[#F4F3F0]">
-            <h3 className="text-[#403F3F] text-4xl font-semibold text-center pt-10">
+            <h3 className="text-[#403F3F] text-3xl md:text-4xl font-semibold text-center pt-10">
               Register your account
             </h3>
             <hr className="w-5/6 mx-auto mt-10 border-b-[1px] border-[#c9ac86]" />

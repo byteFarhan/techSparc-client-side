@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 const Brand = ({ brand }) => {
   const { darkMode } = useAuth();
   return (
-    <Link to={`/brands/${brand.brand}`}>
+    <Link to={`/brands/${brand.brand}`} onClick={() => scrollTo(0, 0)}>
       <div className={`rounded-md shadow ${darkMode && "bg-slate-600"}`}>
         <img
           src={brand.brand_img}

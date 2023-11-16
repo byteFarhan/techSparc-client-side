@@ -4,6 +4,7 @@ import { CgDarkMode } from "react-icons/cg";
 import useAuth from "../../hooks/useAuth";
 import swal from "sweetalert";
 import defaultUserProfile from "../../assets/user.png";
+import ActiveRouteStyle from "../../components/ActiveRouteStyle/ActiveRouteStyle";
 
 const Navbar = () => {
   const { userLogout, user, darkMode, setDarkMode } = useAuth();
@@ -22,19 +23,39 @@ const Navbar = () => {
         });
       });
   };
+  //   <NavLink
+  //   to="/messages"
+  //   className={({ isActive, isPending }) =>
+  //     isPending ? "pending" : isActive ? "active" : ""
+  //   }
+  // ></NavLink>
   const navLink = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending
+              ? ""
+              : isActive
+              ? "underline text-pink-500 font-semibold"
+              : "hover:text-pink-500"
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/add-product">Add Product</NavLink>
+        {/* <NavLink to="/add-product">Add Product</NavLink> */}
+        <ActiveRouteStyle routeLink="/add-product" routeName="Add Product" />
       </li>
       <li>
-        <NavLink to="/my-carts">My Carts</NavLink>
+        {/* <NavLink to="/my-carts">My Carts</NavLink> */}
+        <ActiveRouteStyle routeLink="/my-carts" routeName="My Carts" />
       </li>
       <li>
-        <NavLink to="/register">Register</NavLink>
+        {/* <NavLink to="/register">Register</NavLink> */}
+        <ActiveRouteStyle routeLink="/register" routeName="Register" />
       </li>
     </>
   );
@@ -77,7 +98,7 @@ const Navbar = () => {
           />
         </div>
         <div className="hidden navbar-center lg:flex">
-          <ul className="px-1 menu menu-horizontal">{navLink}</ul>
+          <ul className="gap-5 px-1 font-medium menu-horizontal">{navLink}</ul>
         </div>
         {/*darkmode toogle */}
         <div onClick={() => setDarkMode(!darkMode)}>
